@@ -1,0 +1,1854 @@
+/* 1. Generelle indstillinger */
+
+:root {
+    --lilla: #170282;
+    --lilla-lys: #2207A8;
+    --groen: #2A7C13;
+    --turkis: #55E1E8;
+    --gul: #FFFF00;
+    --orange: #FF2E00;
+    --graa: #808080;
+    --hvid: #FFFFFF;
+    --sort: #111314;
+
+    --overskrift: 'Fredoka', sans-serif;
+    --broedtekst: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--lilla-lys) 38%, var(--groen) 100%);
+    background-attachment: fixed;
+
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header header"
+        "main aside";
+}
+
+/* 2. Sidestruktur og footer */
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hovedindholdet fylder den resterende plads */
+
+main {
+    flex: 1;
+}
+
+/* Footeren beholder sin størrelse */
+
+.footer {
+    flex-shrink: 0;
+}
+
+/* 3. Header og navigation */
+
+header {
+    grid-area: header;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    width: 100%;
+    padding: 10px 40px;
+    background-color: var(--lilla);
+}
+
+/* Header-tekst */
+
+.header-tekst {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.header-tekst:focus-visible {
+    outline: 3px solid var(--hvid);
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+.header-titel {
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: clamp(28px, 4vw, 64px);
+    font-weight: 400;
+}
+
+.header-undertitel {
+    color: var(--hvid);
+    font-family: var(--broedtekst);
+    font-size: clamp(18px, 2.5vw, 40px);
+    font-weight: 600;
+}
+
+/* Header-maskot */
+
+header img {
+    width: clamp(60px, 7vw, 100px);
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Desktopnavigation */
+
+.desktop-navigation {
+    display: block;
+    margin-left: auto;
+}
+
+.desktop-navigation ul {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    list-style: none;
+}
+
+.desktop-navigation a {
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: clamp(20px, 2.5vw, 36px);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.desktop-navigation a:hover,
+.mobile-navigation a:hover {
+    text-decoration: underline;
+}
+
+.desktop-navigation a:focus-visible,
+.mobile-navigation a:focus-visible {
+    outline: 3px solid var(--hvid);
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+/* Mobilmenu skjules på desktop */
+
+.menu {
+    display: none;
+}
+
+/* Skjult tekst til skærmlæser */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Spring til hovedindhold */
+
+.spring-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    z-index: 2000;
+    padding: 12px 18px;
+
+    background: var(--hvid);
+    color: var(--sort);
+    border: 3px solid var(--sort);
+    border-radius: 8px;
+}
+
+.spring-link:focus {
+    top: 10px;
+}
+
+/* 4. Forsiden */
+
+main {
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2em 2em;
+    padding-top: 150px;
+}
+
+.forside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    max-width: 750px;
+    text-align: center;
+}
+
+.forside h1 {
+    color: var(--hvid);
+    font-family: var(--broedtekst);
+    font-size: clamp(28px, 4vw, 62px);
+    font-weight: 600;
+}
+
+.forside p {
+    color: var(--hvid);
+    font-family: var(--broedtekst);
+    font-size: clamp(16px, 3vw, 22px);
+    line-height: 1.6;
+}
+
+/* CTA-knap */
+
+.cta-knap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    height: 100px;
+    padding: 15px;
+
+    background-color: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    border-radius: 20px;
+
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
+}
+
+.cta-knap:hover {
+    background-color: rgba(255, 255, 255, 0.20);
+    text-decoration: underline;
+}
+
+.cta-knap:focus-visible {
+    outline: 3px solid var(--hvid);
+    outline-offset: 5px;
+}
+
+/* Forsidens billede */
+
+aside {
+    grid-area: aside;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+aside img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 5. Kontaktsiden */
+
+.kontakt-side {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header"
+        "main";
+}
+
+.kontakt-side main {
+    display: block;
+    padding: 0;
+}
+
+/* Kontaktformular */
+
+.kontakt-side .kontaktform {
+    width: min(calc(100% - 40px), 760px);
+    margin: 160px auto 40px;
+    padding: 35px;
+
+    background-color: rgba(23, 2, 130, 0.85);
+    border: 1px solid var(--turkis);
+    border-radius: 20px;
+}
+
+/* Overskrift */
+
+.kontaktform h1 {
+    margin-bottom: 15px;
+
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 600;
+}
+
+/* Intro-tekst */
+
+.kontakt-tekst {
+    margin-bottom: 25px;
+
+    color: var(--hvid);
+    font-family: var(--broedtekst);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Inputfelter, dropdown og besked */
+
+.kontaktform input[type="text"],
+.kontaktform input[type="email"],
+.kontaktform input[type="tel"],
+.kontaktform select,
+.kontaktform textarea {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+
+    background-color: var(--hvid);
+    color: var(--graa);
+    border: 2px solid var(--hvid);
+    border-radius: 8px;
+
+    font-family: var(--broedtekst);
+    font-size: 16px;
+}
+
+/* Placeholder */
+
+.kontaktform input::placeholder,
+.kontaktform textarea::placeholder {
+    color: var(--graa);
+    font-family: var(--broedtekst);
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 1;
+}
+
+/* Beskedfelt */
+
+.kontaktform textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Fokus på inputfelter */
+
+.kontaktform input:focus-visible,
+.kontaktform select:focus-visible,
+.kontaktform textarea:focus-visible {
+    outline: 3px solid var(--turkis);
+    outline-offset: 3px;
+}
+
+/* Fieldset */
+
+.kontaktform fieldset {
+    padding: 15px;
+    margin-bottom: 20px;
+
+    color: var(--hvid);
+    border: 2px dashed var(--turkis);
+    border-radius: 8px;
+}
+
+/* Legend */
+
+.kontaktform legend {
+    padding: 0 8px;
+    font-family: var(--broedtekst);
+    font-weight: 600;
+}
+
+/* Labels */
+
+.kontaktform label:not(.visually-hidden) {
+    color: var(--hvid);
+    font-family: var(--broedtekst);
+    font-size: 16px;
+}
+
+/* Checkbox og radio */
+
+.kontaktform input[type="checkbox"],
+.kontaktform input[type="radio"] {
+    width: auto;
+    margin: 12px 6px 12px 0;
+    cursor: pointer;
+    accent-color: var(--turkis);
+}
+
+/* Send-knap */
+
+.kontaktform input[type="submit"] {
+    width: 100%;
+    padding: 16px;
+
+    background-color: var(--turkis);
+    color: var(--hvid);
+    border: none;
+    border-radius: 10px;
+
+    font-family: var(--overskrift);
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.kontaktform input[type="submit"]:hover {
+    background-color: var(--groen);
+}
+
+.kontaktform input[type="submit"]:focus-visible {
+    outline: 3px solid var(--turkis);
+    outline-offset: 4px;
+}
+
+/* 6. Børnenes side */
+
+/* Grundlæggende layout */
+
+.boern-body {
+    display: block;
+}
+
+.boern-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 160px 30px 60px;
+
+    color: var(--sort);
+    font-family: var(--broedtekst);
+}
+
+.boern-side h2 {
+    font-family: var(--overskrift);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.boern-side p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.boern-side p + p {
+    margin-top: 15px;
+}
+
+.boern-side a:focus-visible {
+    outline: 4px solid var(--sort);
+    outline-offset: 5px;
+}
+
+/* Intro */
+
+.boern-intro {
+    width: 100%;
+    max-width: 850px;
+    padding: 0;
+    color: var(--hvid);
+    text-align: center;
+}
+
+.boern-intro-billede {
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+.boern-intro-billede img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.boern-intro-tekst {
+    position: absolute;
+    top: 9%;
+    left: 22%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 55%;
+    color: var(--sort);
+    text-align: center;
+}
+
+.boern-intro-tekst h1 {
+    margin-bottom: 12px;
+    font-family: var(--overskrift);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.boern-intro-tekst p {
+    max-width: 100%;
+    margin: 0 0 10px;
+    font-family: var(--broedtekst);
+    font-size: clamp(13px, 1.5vw, 17px);
+    line-height: 1.5;
+}
+
+/* Oversigt over emner */
+
+.boern-oversigt {
+    width: 100%;
+    padding: 30px;
+}
+
+.boern-oversigt h2 {
+    margin-bottom: 30px;
+    color: var(--hvid);
+    font-size: clamp(26px, 3vw, 36px);
+    text-align: center;
+}
+
+.boern-oversigt-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.boern-oversigt-grid a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    min-height: 190px;
+    padding: 15px 10px;
+
+    border: 3px solid var(--hvid);
+    border-radius: 25px;
+
+    color: var(--sort);
+    font-family: var(--overskrift);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+
+    transition: transform 0.2s ease;
+}
+
+/* Farver på de fem kort */
+
+.boern-oversigt-grid a:nth-child(1) {
+    background-color: var(--turkis);
+}
+
+.boern-oversigt-grid a:nth-child(2) {
+    background-color: var(--groen);
+    color: var(--sort);
+}
+
+.boern-oversigt-grid a:nth-child(3) {
+    background-color: var(--gul);
+}
+
+.boern-oversigt-grid a:nth-child(4) {
+    background-color: var(--orange);
+}
+
+.boern-oversigt-grid a:nth-child(5) {
+    background-color: var(--graa);
+    color: var(--sort);
+}
+
+/* Numre på kortene */
+
+.oversigt-nummer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: var(--hvid);
+    border-radius: 50%;
+
+    color: var(--sort);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Hover og fokus */
+
+.boern-oversigt-grid a:hover,
+.boern-oversigt-grid a:focus-visible {
+    transform: translateY(-7px);
+}
+
+.boern-oversigt-grid a:hover {
+    text-decoration: underline;
+}
+
+.boern-oversigt-grid a:focus-visible {
+    outline: 4px solid var(--hvid);
+    outline-offset: 5px;
+}
+
+/* Afslutning */
+
+.boern-afslutning {
+    width: 100%;
+    padding: 40px 30px;
+
+    background-color: var(--lilla);
+    border: 2px solid var(--turkis);
+    border-radius: 20px;
+
+    color: var(--hvid);
+    text-align: center;
+}
+
+.boern-afslutning h2 {
+    margin-bottom: 20px;
+    color: var(--hvid);
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+.boern-afslutning p {
+    max-width: 750px;
+    margin: 0 auto 15px;
+}
+
+/* CTA på børnesiden */
+
+.boern-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+    margin-top: 20px;
+    padding: 12px 25px;
+
+    background-color: var(--turkis);
+    border: 2px solid var(--turkis);
+    border-radius: 10px;
+
+    color: var(--hvid);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.boern-cta:hover {
+    background-color: var(--groen);
+    border-color: var(--groen);
+    text-decoration: none;
+}
+
+/* Emnernes fælles layout */
+
+.boern-emner {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+    gap: 25px;
+
+    width: 100%;
+    scroll-margin-top: 150px;
+}
+
+/* Emne 1 – Pigen i den gule kjole */
+
+.boern-emner-1 > img {
+    position: relative;
+    top: -280px;
+    pointer-events: none;
+
+    width: 200%;
+    height: auto;
+    object-fit: contain;
+
+    justify-self: start;
+    align-self: start;
+    transform: translateX(-38%);
+}
+
+/* Emne 2 – Beskeder */
+
+.boern-emner-2 {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: center;
+    margin-top: -250px;
+}
+
+.boern-emner-2 .oplysninger-section {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+}
+
+.boern-emner-2 > .img-fremmede {
+    grid-column: 2;
+    grid-row: 1;
+    pointer-events: none;
+
+    width: 125%;
+    height: auto;
+    object-fit: contain;
+
+    justify-self: center;
+    align-self: center;
+}
+
+/* Emne 3 – AI */
+
+.boern-emner-3 {
+    margin-top: 105px;
+}
+
+.boern-emner-3 .img-barn-med-ai {
+    width: 150%;
+    height: auto;
+    object-fit: contain;
+    position: static;
+    transform: translateX(-70px);
+    justify-self: center;
+    align-self: center;
+}
+
+/* Emne 4 – Algoritmer */
+
+.boern-emner-4 {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: center;
+}
+
+.boern-emner-4 .oplysninger-section {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+}
+
+.boern-emner-4 > .img-algoritme {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 110%;
+    height: auto;
+    object-fit: contain;
+
+    justify-self: center;
+    align-self: center;
+}
+
+/* Emne 5 – Sikker konto */
+
+.boern-emner-5 > .img-konto {
+    width: 150%;
+    height: auto;
+    object-fit: contain;
+    position: static;
+    transform: translateX(-65px);
+    justify-self: center;
+    align-self: center;
+}
+
+/* De store infobokse */
+
+.oplysninger-section {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    width: 100%;
+    padding: 35px;
+
+    background-color: var(--lilla-lys);
+    border: 3px solid var(--hvid);
+    border-radius: 25px;
+
+    color: var(--hvid);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* Overskrifter og introduktioner */
+
+.emne-oplysninger h2 {
+    margin-bottom: 15px;
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: clamp(26px, 2.5vw, 34px);
+}
+
+.emne-oplysninger p {
+    margin-bottom: 12px;
+    color: var(--hvid);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Fold-ud-bokse */
+
+.boern-info,
+.boern-råd {
+    padding: 0;
+    background-color: var(--groen);
+    border: 2px solid var(--hvid);
+    border-radius: 14px;
+    color: var(--hvid);
+    overflow: hidden;
+
+    transition: background-color 0.2s ease;
+}
+
+/* Hele boksen bliver klikbar */
+
+.boern-info summary,
+.boern-råd summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    width: 100%;
+    min-height: 65px;
+    padding: 20px;
+
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: 19px;
+    font-weight: 600;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Fjern browserens standardpil */
+
+.boern-info summary::-webkit-details-marker,
+.boern-råd summary::-webkit-details-marker {
+    display: none;
+}
+
+.boern-info summary::marker,
+.boern-råd summary::marker {
+    content: "";
+}
+
+/* Lav vores egen pil */
+
+.boern-info summary::after,
+.boern-råd summary::after {
+    content: "+";
+    flex-shrink: 0;
+
+    font-family: var(--broedtekst);
+    font-size: 28px;
+    font-weight: 600;
+
+    transition: transform 0.2s ease;
+}
+
+/* Pil ændres, når boksen åbnes */
+
+.boern-info[open] summary::after,
+.boern-råd[open] summary::after {
+    content: "−";
+}
+
+/* Hover-effekt */
+
+.boern-info:hover,
+.boern-råd:hover {
+    background-color: var(--turkis¢);
+}
+
+/* Tastaturfokus */
+
+.boern-info summary:focus-visible,
+.boern-råd summary:focus-visible {
+    outline: 4px solid var(--gul);
+    outline-offset: -5px;
+}
+
+/* Indhold under CTA'en */
+
+.boern-info ul,
+.boern-info p,
+.boern-råd ul,
+.boern-råd p {
+    padding: 0 20px 20px;
+}
+
+/* Afstand til lister */
+
+.boern-info ul {
+    margin-top: 0;
+}
+
+.oplysninger-section summary:focus-visible {
+    outline: 3px solid var(--hvid);
+    outline-offset: 5px;
+}
+
+/* Lister og spørgsmål */
+
+.boern-info ul {
+    margin-top: 15px;
+    padding-left: 25px;
+    color: var(--hvid);
+    line-height: 1.9;
+}
+
+.boern-spoergsmaal h3 {
+    margin-bottom: 10px;
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: 21px;
+}
+
+.boern-spoergsmaal p,
+.boern-råd p {
+    color: var(--hvid);
+    line-height: 1.7;
+}
+
+.boern-råd p {
+    margin-top: 12px;
+}
+
+/* 7. Forældrenes side */
+
+.foraeldre-body {
+    display: block;
+}
+
+.foraeldre-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 160px 30px 60px;
+
+    color: var(--hvid);
+    font-family: var(--broedtekst);
+}
+
+.foraeldre-side h2,
+.foraeldre-side h3 {
+    font-family: var(--overskrift);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.foraeldre-side p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.foraeldre-side p + p {
+    margin-top: 15px;
+}
+
+.foraeldre-side a:focus-visible {
+    outline: 4px solid var(--hvid);
+    outline-offset: 5px;
+}
+
+/* Intro */
+
+.foraeldre-intro {
+    width: 100%;
+    max-width: 900px;
+    padding: 35px;
+
+    background-color: var(--lilla);
+    border: 2px solid var(--turkis);
+    border-radius: 25px;
+
+    color: var(--hvid);
+    text-align: center;
+}
+
+.foraeldre-intro h1 {
+    margin-bottom: 25px;
+    color: var(--hvid);
+    font-family: var(--overskrift);
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.foraeldre-intro p {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.foraeldre-intro p + p {
+    margin-top: 20px;
+}
+
+/* Oversigt over emner */
+
+.foraeldre-oversigt {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.foraeldre-oversigt h2 {
+    margin-bottom: 30px;
+    color: var(--hvid);
+    font-size: clamp(28px, 3vw, 38px);
+    text-align: center;
+}
+
+.foraeldre-oversigt-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.foraeldre-oversigt-grid a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    min-height: 180px;
+    padding: 15px 10px;
+
+    background-color: var(--hvid);
+    border: 3px solid var(--hvid);
+    border-radius: 22px;
+
+    color: var(--sort);
+    font-family: var(--overskrift);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+
+    transition: transform 0.2s ease;
+}
+
+/* Farver på kortene */
+
+.foraeldre-oversigt-grid a:nth-child(1) {
+    background-color: var(--turkis);
+}
+
+.foraeldre-oversigt-grid a:nth-child(2) {
+    background-color: var(--groen);
+}
+
+.foraeldre-oversigt-grid a:nth-child(3) {
+    background-color: var(--gul);
+}
+
+.foraeldre-oversigt-grid a:nth-child(4) {
+    background-color: var(--orange);
+}
+
+.foraeldre-oversigt-grid a:nth-child(5) {
+    background-color: var(--graa);
+}
+
+/* Nummer i cirkel */
+
+.foraeldre-nummer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: var(--hvid);
+    border: 2px solid var(--sort);
+    border-radius: 50%;
+
+    color: var(--sort);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Hover og fokus */
+
+.foraeldre-oversigt-grid a:hover {
+    transform: translateY(-7px);
+    text-decoration: underline;
+}
+
+.foraeldre-oversigt-grid a:focus-visible {
+    outline: 4px solid var(--hvid);
+    outline-offset: 5px;
+}
+
+/* De fem emner */
+
+.foraeldre-emne {
+    display: grid;
+    grid-template-columns: 75px minmax(0, 1fr);
+    align-items: start;
+    gap: 25px;
+
+    width: 100%;
+    padding: 35px;
+
+    background-color: var(--lilla);
+    border: 2px solid var(--hvid);
+    border-radius: 25px;
+
+    color: var(--hvid);
+    scroll-margin-top: 150px;
+}
+
+/* Nummer ved hvert emne */
+
+.emne-nummer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    background-color: var(--turkis);
+    border: 2px solid var(--hvid);
+    border-radius: 50%;
+
+    color: var(--sort);
+    font-family: var(--overskrift);
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* Indholdet i emnerne */
+
+.foraeldre-emne-indhold {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+}
+
+.foraeldre-emne-indhold h2 {
+    margin-bottom: 5px;
+    color: var(--hvid);
+    font-size: clamp(26px, 3vw, 34px);
+}
+
+.foraeldre-emne-indhold p {
+    color: var(--hvid);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Formålsboksen */
+
+.foraeldre-formaal {
+    margin-top: 15px;
+    padding: 22px;
+
+    background-color: var(--groen);
+    border: 2px solid var(--hvid);
+    border-radius: 15px;
+
+    color: var(--hvid);
+}
+
+.foraeldre-formaal h3 {
+    margin-bottom: 10px;
+    color: var(--hvid);
+    font-size: 22px;
+}
+
+.foraeldre-formaal p {
+    color: var(--hvid);
+    font-size: 16px;
+}
+
+/* Afslutning */
+
+.foraeldre-afslutning {
+    width: 100%;
+    padding: 40px 30px;
+
+    background-color: var(--lilla);
+    border: 2px solid var(--turkis);
+    border-radius: 25px;
+
+    color: var(--hvid);
+    text-align: center;
+}
+
+.foraeldre-afslutning h2 {
+    margin-bottom: 20px;
+    color: var(--hvid);
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+.foraeldre-afslutning p {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.foraeldre-afslutning p + p {
+    margin-top: 15px;
+}
+
+/* 8. Responsive design */
+
+/* Tablet og mobil */
+
+@media (max-width: 768px) {
+
+    /* Header */
+
+    header {
+        position: relative;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+
+    .header-tekst {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .header-tekst .header-titel {
+        font-size: clamp(22px, 5vw, 32px);
+    }
+
+    .header-tekst .header-undertitel {
+        font-size: clamp(16px, 3.5vw, 22px);
+    }
+
+    header img {
+        width: clamp(50px, 12vw, 75px);
+    }
+
+    /* Desktopmenu skjules */
+
+    .desktop-navigation {
+        display: none;
+    }
+
+    /* Burgermenu */
+
+    .menu {
+        display: block;
+        flex: 0 0 auto;
+        margin-left: 0;
+    }
+
+    .burger-menu {
+        display: block;
+        width: fit-content;
+        padding: 10px;
+
+        background-color: var(--lilla);
+        border-radius: 8px;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .burger-menu::-webkit-details-marker {
+        display: none;
+    }
+
+    .burger-menu::marker {
+        content: "";
+    }
+
+    .burger-menu span:not(.visually-hidden) {
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin: 6px 0;
+
+        background-color: var(--hvid);
+        border-radius: 3px;
+    }
+
+    .burger-menu:focus-visible {
+        outline: 3px solid var(--hvid);
+        outline-offset: 4px;
+    }
+
+    /* Mobilnavigation */
+
+    .mobile-navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        background-color: var(--lilla);
+    }
+
+    .mobile-navigation ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+
+        padding: 10px 20px;
+        list-style: none;
+    }
+
+    .mobile-navigation a {
+        display: block;
+        padding: 12px;
+
+        color: var(--hvid);
+        font-family: var(--overskrift);
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    /* Forsidens layout */
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px 30px;
+    }
+
+    /* Billedet kommer først */
+
+    aside {
+        order: -1;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    aside img {
+        display: block;
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    /* Tekst og knap kommer under billedet */
+
+    .forside {
+        order: 1;
+        width: 100%;
+        max-width: 550px;
+        margin: 0;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .forside h1,
+    .forside p,
+    .forside .cta-knap {
+        transform: none;
+    }
+
+    /* Kontaktsiden */
+
+    .kontakt-side .kontaktform {
+        width: calc(100% - 30px);
+        margin: 25px auto;
+        padding: 22px;
+    }
+
+    .kontaktform h1 {
+        font-size: 30px;
+    }
+
+    .kontakt-tekst {
+        font-size: 16px;
+    }
+
+    /* Børnenes side */
+
+    .boern-side {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .boern-oversigt {
+        padding: 20px 10px;
+    }
+
+    .boern-oversigt-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .boern-oversigt-grid a {
+        min-height: 160px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .boern-emner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 0;
+    }
+
+    .boern-emner-2 {
+        margin-top: 0;
+    }
+
+    .boern-emner > img {
+        display: block;
+        position: static;
+        transform: none;
+
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+
+        margin: 0 auto;
+        order: -1;
+    }
+
+    .boern-emner .oplysninger-section {
+        width: 100%;
+        padding: 22px;
+        gap: 18px;
+        border-radius: 20px;
+    }
+
+    .boern-side p {
+        font-size: 16px;
+    }
+
+    .boern-afslutning {
+        padding: 30px 20px;
+    }
+
+    /* Intro og taleboble på mobil */
+
+    .boern-intro {
+        width: 100%;
+    }
+
+    .boern-intro-tekst {
+        top: 8%;
+        left: 20%;
+        width: 60%;
+    }
+
+    .boern-intro-tekst h1 {
+        margin-bottom: 6px;
+        font-size: clamp(20px, 4vw, 28px);
+    }
+
+    .boern-intro-tekst p {
+        font-size: clamp(11px, 1.8vw, 14px);
+        line-height: 1.3;
+        margin-bottom: 0;
+    }
+
+    /* Forældrenes side */
+
+    .foraeldre-side {
+        padding: 35px 20px 45px;
+        gap: 30px;
+    }
+
+    .foraeldre-intro {
+        padding: 25px 20px;
+    }
+
+    .foraeldre-intro p {
+        font-size: 16px;
+    }
+
+    .foraeldre-oversigt {
+        padding: 10px 0;
+    }
+
+    .foraeldre-oversigt-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .foraeldre-oversigt-grid a {
+        min-height: 150px;
+        font-size: 16px;
+    }
+
+    .foraeldre-emne {
+        grid-template-columns: 55px minmax(0, 1fr);
+        gap: 15px;
+        padding: 22px 18px;
+    }
+
+    .emne-nummer {
+        width: 50px;
+        height: 50px;
+        font-size: 21px;
+    }
+
+    .foraeldre-emne-indhold h2 {
+        font-size: 26px;
+    }
+
+    .foraeldre-emne-indhold p {
+        font-size: 16px;
+    }
+
+    .foraeldre-formaal {
+        padding: 18px;
+    }
+
+    .foraeldre-afslutning {
+        padding: 30px 20px;
+    }
+
+    .foraeldre-afslutning p {
+        font-size: 16px;
+    }
+}
+
+/* 9. Responsive design – små mobiler */
+
+@media (max-width: 480px) {
+
+    /* Børnenes side */
+
+    .boern-oversigt {
+        padding: 18px;
+    }
+
+    .boern-oversigt-grid a {
+        font-size: 16px;
+    }
+
+    .boern-afslutning {
+        padding: 30px 20px;
+    }
+
+    /* Intro og taleboble på små mobiler */
+
+    .boern-intro-tekst {
+        top: 7%;
+        left: 19%;
+        width: 62%;
+    }
+
+    .boern-intro-tekst h1 {
+        margin-bottom: 4px;
+        font-size: clamp(17px, 5vw, 22px);
+    }
+
+    .boern-intro-tekst p {
+        font-size: clamp(10px, 3vw, 12px);
+        line-height: 1.25;
+    }
+
+    /* Forældrenes side */
+
+    .foraeldre-side {
+        padding: 25px 15px 35px;
+        gap: 25px;
+    }
+
+    .foraeldre-intro {
+        padding: 22px 17px;
+    }
+
+    .foraeldre-intro h1 {
+        font-size: 29px;
+    }
+
+    .foraeldre-oversigt h2 {
+        font-size: 27px;
+    }
+
+    .foraeldre-oversigt-grid a {
+        min-height: 135px;
+        padding: 12px 8px;
+        font-size: 15px;
+    }
+
+    .foraeldre-nummer {
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+    }
+
+    .foraeldre-emne {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .emne-nummer {
+        width: 45px;
+        height: 45px;
+        font-size: 19px;
+    }
+
+    .foraeldre-emne-indhold h2 {
+        font-size: 25px;
+    }
+
+    .foraeldre-emne-indhold p {
+        font-size: 16px;
+    }
+
+    .foraeldre-formaal {
+        padding: 17px;
+    }
+
+    .foraeldre-afslutning h2 {
+        font-size: 28px;
+    }
+}
+
+/* 10. Tilgængelighed */
+
+/* Reduceret bevægelse */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .boern-side *,
+    .boern-side *::before,
+    .boern-side *::after,
+    .foraeldre-side *,
+    .foraeldre-side *::before,
+    .foraeldre-side *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 11. Footer – Børnenes Univers */
+
+.footer {
+    width: 80%;
+    margin: 0 auto 60px;
+    padding: 40px 30px;
+    background-color: var(--lilla);
+    border: 2px solid var(--turkis);
+    border-radius: 20px;
+    color: var(--hvid);
+    box-sizing: border-box;
+}
+
+/* Afsluttende tekst */
+
+.footer-intro {
+    max-width: 750px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.footer-intro h2 {
+    margin-bottom: 15px;
+    font-family: var(--overskrift);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+}
+
+.footer-intro p {
+    margin-bottom: 12px;
+    font-family: var(--broedtekst);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Footerens tre kolonner */
+
+.footer-kolonner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 30px;
+
+    border-top: 1px solid var(--hvid);
+}
+
+/* Kolonner */
+
+.footer-logo,
+.footer-navigation,
+.footer-kontakt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Logo og headertekst */
+
+.footer-logo {
+    justify-content: flex-start;
+}
+
+.footer-logo .header-tekst {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+/* Footerens overskrifter */
+
+.footer-navigation h2,
+.footer-kontakt h2 {
+    margin: 0 0 15px;
+    font-family: var(--overskrift);
+    font-size: 24px;
+    line-height: 1.3;
+    color: var(--hvid);
+}
+
+/* Footerens lister */
+
+.footer-navigation ul,
+.footer-kontakt ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Kontaktoplysninger */
+
+/* Fjerner browserens standard kursiv fra address */
+
+.footer-kontakt address {
+    font-style: normal;
+}
+
+/* Links */
+
+.footer-navigation a,
+.footer-kontakt a {
+    display: inline-block;
+
+    color: var(--hvid);
+    font-family: var(--broedtekst);
+    font-size: 16px;
+    line-height: 1.6;
+
+    text-decoration: none;
+}
+
+/* Understregning ved hover */
+
+.footer-navigation a:hover,
+.footer-kontakt a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+}
+
+/* Tastaturfokus – WCAG */
+
+.footer-navigation a:focus-visible,
+.footer-kontakt a:focus-visible,
+.footer-logo a:focus-visible {
+    outline: 3px solid var(--hvid);
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+/* 12. Responsive footer – tablet og mobil */
+
+@media (max-width: 768px) {
+
+    .footer {
+        padding: 30px 22px;
+    }
+
+    .footer-intro {
+        margin-bottom: 30px;
+    }
+
+    /* Kolonnerne placeres lodret */
+
+    .footer-kolonner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 25px;
+    }
+
+    /* Kolonnerne centreres på mobil */
+
+    .footer-logo,
+    .footer-navigation,
+    .footer-kontakt {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-navigation ul,
+    .footer-kontakt ul {
+        align-items: center;
+    }
+
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kontaktform</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="kontakt-side">
+    <a class="spring-link" href="#indhold">
+    Gå til hovedindhold
+    </a>
+
+    <header>
+
+     <!-- Header-tekst og link til forsiden -->
+         <a href="/index.html" class="header-tekst">
+             <span class="header-titel">Børnenes Univers</span>
+             <span class="header-undertitel">Tryg Online</span>
+             </a>
+
+     <!-- Desktop navigation -->
+        <nav class="desktop-navigation" aria-label="Hovednavigation">
+            <ul>
+                <li><a href="/forældre.html">Forældre</a></li>
+                <li><a href="/børn.html">Børn</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+
+     <!-- Mobil burgermenu -->
+        <details class="menu">
+            <summary class="burger-menu">
+                <span class="visually-hidden">Åbn eller luk menu</span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </summary>
+
+            <nav class="mobile-navigation" aria-label="Mobilnavigation">
+                <ul>
+                    <li><a href="/forældre.html">Forældre</a></li>
+                    <li><a href="/børn.html">Børn</a></li>
+                    <li><a href="/kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </details>
+
+     <!-- Header-maskot -->
+        <img src="/img/computer_maskot3.png"
+            alt="">
+
+    </header>
+
+     <!-- Kontaktform - hovedindhold -->
+<main class="kontaktform" id="indhold">
+
+    <h1>Kontakt Børnenes Univers</h1>
+
+    <p class="kontakt-tekst">
+        Skriv til os via kontaktformularen, så vender vi tilbage til dig.
+    </p>
+
+    <form>
+
+        <label class="visually-hidden" for="navn">Navn</label>
+        <input id="navn" name="navn" type="text"
+               placeholder="Navn" autocomplete="name" required>
+
+        <label class="visually-hidden" for="email">Email</label>
+        <input id="email" name="email" type="email"
+               placeholder="Email" autocomplete="email" required>
+
+        <label class="visually-hidden" for="tel">Telefon</label>
+        <input id="tel" name="telefon" type="tel"
+               placeholder="Telefon" autocomplete="tel">
+
+        <label class="visually-hidden" for="adresse">Adresse</label>
+        <input id="adresse" name="adresse" type="text"
+               placeholder="Adresse" autocomplete="street-address">
+
+
+        <!-- Checkbox -->
+        <fieldset class="checkbox">
+            <legend>Hvad handler din henvendelse om?</legend>
+
+            <div>
+                <input type="checkbox" id="klage" name="henvendelse[]" value="Klage">
+                <label for="klage">Klage</label>
+
+                <input type="checkbox" id="ros" name="henvendelse[]" value="Ros">
+                <label for="ros">Ros</label>
+
+                <input type="checkbox" id="ide" name="henvendelse[]" value="Idé">
+                <label for="ide">Idé</label>
+            </div>
+        </fieldset>
+
+        <!-- Besked -->
+        <label for="besked">Besked</label>
+        <textarea id="besked" name="besked"
+                  rows="6" required></textarea>
+
+        <!-- Radio buttons -->
+        <fieldset>
+            <legend>Må vi kontakte dig på telefon?</legend>
+
+            <input id="ja" type="radio" name="telefonkontakt" value="Ja">
+            <label for="ja">Ja</label>
+
+            <input id="nej" type="radio" name="telefonkontakt" value="Nej">
+            <label for="nej">Nej</label>
+        </fieldset>
+
+        <input type="submit" value="Send besked">
+
+    </form>
+
+</main>
+<footer class="footer">
+
+        <section class="footer-intro"
+                 aria-labelledby="afslutning-overskrift">
+
+            <h2 id="afslutning-overskrift">
+                Du behøver ikke vide alt
+            </h2>
+
+            <p>
+                Det vigtigste er, at du tænker dig om,
+                passer på dine oplysninger og siger det til nogen,
+                hvis noget på nettet gør dig utryg.
+            </p>
+
+            <p>
+                Husk: Du må altid spørge en voksen om hjælp.
+            </p>
+
+        </section>
+
+        <!-- Footerens tre kolonner -->
+        <div class="footer-kolonner">
+
+
+        <!-- Kolonne 1: Header Navn -->
+        <div class="footer-logo">
+            <a href="/index.html" class="header-tekst">
+                <span class="header-titel">
+                    Børnenes Univers
+                </span>
+
+                <span class="header-undertitel">
+                    Tryg Online
+                </span>                
+            </a>
+        </div>
+
+
+        <!-- Kolonne 2: Navigation -->
+           <nav class="footer-navigation"
+                 aria-label="Footer navigation">
+            <h2>Navigation</h2>
+
+            <ul>
+                <li>
+                    <a href="/index.html">
+                        Forside
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/forældre.html">
+                        Forældre
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/børn.html">
+                        Børn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/kontakt.html" aria-current="page">
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Kolonne 3: Kontakt -->
+        <section class="footer-kontakt"
+                 aria-labelledby="footer-kontakt-overskrift">
+
+            <h2 id="footer-kontakt-overskrift">
+                Kontakt
+            </h2>
+
+            <address>
+                <ul>
+                    <li>
+                        <a href="mailto:kontakt@børneuniverset.dk">
+                            kontakt@børneuniverset.dk
+                        </a>
+                    </li>
+
+                    <li>
+                        +45 xxxxxxxxxx
+                    </li>
+
+                    <li>
+                        Varde Danmark
+                    </li>
+                </ul>
+            </address>
+
+        </section>
+
+        </div>
+    </footer>
+</body>
+</html>

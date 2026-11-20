@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Børn</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="boern-body">
+    <a class="spring-link" href="#indhold">
+    Gå til hovedindhold
+    </a>
+
+    <header>
+
+     <!-- Header-tekst og link til forsiden -->
+         <a href="/index.html" class="header-tekst">
+             <span class="header-titel">Børnenes Univers</span>
+             <span class="header-undertitel">Tryg Online</span>
+             </a>
+
+     <!-- Desktop navigation -->
+        <nav class="desktop-navigation" aria-label="Hovednavigation">
+            <ul>
+                <li><a href="/forældre.html">Forældre</a></li>
+                <li><a href="/børn.html">Børn</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+
+     <!-- Mobil burgermenu -->
+        <details class="menu">
+            <summary class="burger-menu">
+                <span class="visually-hidden">Åbn eller luk menu</span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </summary>
+
+            <nav class="mobile-navigation" aria-label="Mobilnavigation">
+                <ul>
+                    <li><a href="/forældre.html">Forældre</a></li>
+                    <li><a href="/børn.html">Børn</a></li>
+                    <li><a href="/kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </details>
+
+     <!-- Header-maskot -->
+        <img src="/img/computer_maskot3.png"
+            alt="">
+
+    </header>
+
+    
+    <main class="boern-side" id="indhold">
+
+     <!-- Intro -->
+        <section class="boern-intro" aria-labelledby="side-velkomst">
+            <figure class="boern-intro-billede">
+                <img
+                    src="/img/børn_talebobbel.png"
+                    alt="Fem børn, der byder dig velkommen til Børnenes Univers">
+
+                <figcaption class="boern-intro-tekst">
+                    <h1 id="side-velkomst">
+                        Hej!
+                    </h1>
+
+                    <p>
+                        Kan du godt li' at spille fede spil på nettet,
+                        skrive med vennerne eller se sjove videoer?
+                        Det kan vi også!
+                        Rul ned og se, hvordan du kan have det sjovt
+                        og passe på dig selv online!
+                    </p>
+                </figcaption>
+            </figure>
+        </section>   
+
+
+     <!-- OVERSIGT OVER EMNER -->
+        <nav class="boern-oversigt" aria-label="Sidens emner">
+            <h2>Hvad vil du lære om?</h2>
+            <div class="boern-oversigt-grid">
+
+                <a href="#oplysninger">
+                    <span class="oversigt-nummer">01</span>
+                    Pas på dine oplysninger
+                </a>
+
+                <a href="#beskeder">
+                    <span class="oversigt-nummer">02</span>
+                    Når nogen skriver til dig
+                </a>
+
+                <a href="#trovaerdighed">
+                    <span class="oversigt-nummer">03</span>
+                    Kan du stole på det, du ser?
+                </a>
+
+                <a href="#algoritmer">
+                    <span class="oversigt-nummer">04</span>
+                    Hvorfor ser du det her?
+                </a>
+
+                <a href="#konto">
+                    <span class="oversigt-nummer">05</span>
+                    Gør din konto sikker
+                </a>
+
+            </div>
+        </nav>
+
+        <section id="oplysninger" class="boern-emner boern-emner-1" 
+                 aria-labelledby="overskrift-oplysninger">
+            <img src="img/pige_gul_kjole.png"
+                    alt="En pige, der vinker til dig og byder dig velkommen til første emne">
+
+            <div class="oplysninger-section">
+                <section class="emne-oplysninger">
+                        <h2 id="overskrift-oplysninger">Pas på dine oplysninger</h2>
+                        <p>Har du prøvet at lave en profil i et spil eller på en app? 
+                           Måske har du skrevet dit navn, valgt et profilbillede eller 
+                           fortalt lidt om dig selv?
+                        </p>
+                        <p>Men vidste du, at ikke alle oplysninger er gode at dele 
+                           med andre? Nogle ting skal du holde for dig selv.
+                        </p>
+                </section>
+
+                <details class="boern-info">
+                    <summary>Hvad skal du passe på med at dele?</summary>
+                        <ul>
+                            <li>Dit fulde navn</li>
+                            <li>Hvor du bor eller hvor du er</li>
+                            <li>Dit telefonnummer</li>
+                            <li>Din skole</li>
+                            <li>Dit CPR-nummer</li>
+                            <li>Dine adgangskoder</li>
+                            <li>Billeder, som viser private ting om dig eller din familie</li>
+                        </ul>
+                </details>
+
+                <section class="boern-spoergsmål">
+                        <h3>Her er et spørgsmål</h3>
+                        <p>Du spiller et nyt spil, og en person du ikke kender ude i verden, 
+                           spørger dig, hvilken skole du går på. Er det en god idé at fortælle det?
+                        </p>
+                </section>
+
+                <details class="boern-råd">
+                    <summary>Se et godt råd</summary>
+                        <p>Du behøver ikke svare på noget du ikke har lyst til. 
+                           Hvis du er i tvivl om, hvad du må dele, eller nogen skriver noget 
+                           du ikke forstår, eller noget der bare er mærkeligt, kan du spørge 
+                           en voksen, du er tryg ved</p>
+                </details>
+             </div>
+        </section>
+
+        <section id="beskeder" class="boern-emner boern-emner-2"
+                 aria-labelledby="overskrift-beskeder">
+            <img class="img-fremmede" src="img/fremmed_på_telefon.png"
+                    alt="En fremmede som skriver til et barn på nettet">
+
+            <div class="oplysninger-section">
+                <section class="emne-oplysninger">
+                        <h2 id="overskrift-beskeder">Når nogen skriver til dig</h2>
+                        <p>Du kan få beskeder fra venner, klassekammerater og mennesker,
+                           du ikke kender. Det sker både i spil, på sociale medier og i besked apps.
+                        </p>
+                        <p>De fleste beskeder er helt almindelige. Men nogen gange kan en besked føles ubehagelig
+                           eller få dig til at føle dig presset.
+                        </p>
+                </section>
+
+                <details class="boern-info">
+                    <summary>Vær opmærksom, hvis nogen:</summary>
+                        <ul>
+                            <li>Beder dig om billeder</li>
+                            <li>Spørger om noget privat eller noget upassende</li>
+                            <li>Siger, at du ikke må fortælle andre om jeres samtale</li>
+                            <li>Bliver ved med at skrive, selvom du siger nej</li>
+                            <li>Får dig til at føle dig utryg eller utilpas</li>
+                        </ul>
+                </details>
+
+                <section class="boern-spoergsmål">
+                        <h3>Hvad kan du gøre?</h3>
+                        <p>Du må gerne lade være med at svare. Du kan blokere personen, 
+                           anmelde beskeden og fortælle det til en voksen.
+                        </p>
+                </section>
+
+                <details class="boern-råd">
+                    <summary>Husk dette:</summary>
+                        <p>Du har ikke gjort noget forkert, hvis nogen skriver noget 
+                           ubehageligt til dig. Du behøver ikke klare det alene. Det er altid 
+                           en god idé at fortælle det til en voksen.</p>
+                </details>
+             </div>
+        </section>
+
+        <section id="trovaerdighed" class="boern-emner boern-emner-3"
+                 aria-labelledby="overskrift-trovaerdighed">
+            <img class="img-barn-med-ai" src="img/barn_med_ai.png"
+                    alt="En dreng viser dig et billede han har taget ude i skoven, 
+                    men billedet er ændret med kunstig intelligens, så en fugl har to hoveder">
+
+            <div class="oplysninger-section">
+                <section class="emne-oplysninger">
+                        <h2 id="overskrift-trovaerdighed">Kan du stole på det, du ser?</h2>
+                        <p>På nettet kan du finde billeder, videoer og historier 
+                           om næsten alt. Men det betyder ikke, at alt er rigtigt.
+                        </p>
+                        <p>Nogle billeder og videoer kan være ændret, så de viser noget, 
+                           der aldrig er sket. Andre kan være lavet med kunstig intelligens 
+                           også kaldet AI. 
+                        </p>
+                </section>
+
+                <details class="boern-info">
+                    <summary>Hvad er AI?</summary>
+                        <p>AI er en slags computer-teknologi, der blandt andet kan lave 
+                           billeder, tekster og videoer. Nogle gange kan resultatet 
+                           se så ægte ud, at det kan være svært at se forskel.
+                        </p>
+                </details>
+
+                <section class="boern-spoergsmål">
+                        <h3>Stop op og tænk</h3>
+                        <p>Hvis du ser en video, der virker helt vild eller næsten
+                           for mærkelig til at være sand, så prøv at undersøge den,
+                           før du tror på den eller deler den.
+                        </p>
+                </section>
+
+                <details class="boern-råd">
+                    <summary>Sådan kan du undersøge det</summary>
+                        <ul>
+                            <li>Hvem har delt billedet eller videoen?</li>
+                            <li>Kan du finde den samme historie andre steder?</li>
+                            <li>Virker noget ved billedet eller videoen mærkeligt?</li>
+                            <li>Du kan spørge en voksen om det er ægte</li>
+                        </ul>
+                </details>
+             </div>
+        </section>
+
+        <section id="algoritmer" class="boern-emner boern-emner-4"
+                 aria-labelledby="overskrift-algoritmer">
+            <img class="img-algoritme" src="img/algoritme_maskot.png"
+                    alt="Maskotten fra Børnenes Univers, der illustrerer anbefalinger på nettet">
+
+            <div class="oplysninger-section">
+                <section class="emne-oplysninger">
+                        <h2 id="overskrift-algoritmer">Hvorfor ser du lige det her?</h2>
+                        <p>Har du prøvet at se én video om et bestemt spil, og bagefter
+                           dukker der pludselig en masse lignende videoer op?
+                        </p>
+                        <p>Det er ikke helt tilfældigt. Mange apps og hjemmesider prøver
+                           at gætte, hvad du gerne vil se. 
+                        </p>
+                </section>
+
+                <details class="boern-info">
+                    <summary>Hvordan fungerer det?</summary>
+                        <p>Når du ser, liker eller søger efter noget, kan appen bruge 
+                           det til at foreslå mere af det samme. Det sker ved hjælp af 
+                           noget, der kaldes en algoritme. 
+                        </p>
+                        <p> En algoritme er kort sagt nogle regler, 
+                            som en computer følger for at vælge, 
+                            hvad den viser dig.
+                        </p>
+                </details>
+
+                <section class="boern-spoergsmål">
+                        <h3>Er det altid godt?</h3>
+                        <p>Det kan være godt, men det er det ikke altid. Du kan ende med 
+                           at se de samme typer videoer igen og igen. Derfor er det godt 
+                           at huske, at der findes meget andet på nettet end det, appen
+                           foreslår. 
+                        </p>
+                        <p>
+                            Hvis du ser noget, du ikke kan lide, kan du prøve at
+                            gå videre til en anden video. Nogle apps bruger nemlig
+                            det, du ser og reagerer på, til at foreslå nyt indhold.
+                        </p>
+                </section>
+
+                <details class="boern-råd">
+                    <summary>Et godt tip:</summary>
+                        <p>Prøv at være nysgerrig og opsøg også andre emner. Du kan ofte ændre
+                           dine anbefalinger eller indstillinger sammen med en voksen.
+                        </p>
+                </details>
+             </div>
+        </section>
+
+        <section id="konto" class="boern-emner boern-emner-5" 
+                 aria-labelledby="overskrift-konto">
+            <img class="img-konto" src="img/forældre_og_børn.png"
+                 alt="To børn ved en computer med deres forældre, der hjælper med at være sikker på nettet">
+
+            <div class="oplysninger-section">
+                <section class="emne-oplysninger">
+                        <h2 id="overskrift-konto">Gør din konto sikker</h2>
+                        <p>Har du en konto på sociale medier? Så er det vigtigt at 
+                           passe på den. Ellers kan andre måske få adgang til den.
+                        </p>
+                </section>
+
+                <details class="boern-info">
+                    <summary>Sådan passer du på din konto:</summary>
+                        <ul>
+                            <li>Lav en adgangskode som andre ikke let kan gætte. 
+                                Du kan få dine forældre til at hjælpe dig med at huske den.</li>
+                            <li>Det er også en god idé at bruge forskellige adgangskoder.</li>
+                            <li>Man skal ikke dele sin adgangskode med sine venner.</li>
+                            <li>Vær forsigtig med koder, du får på sms eller e-mail.</li>
+                            <li>Spørg en voksen om hjælp hvis du er i tvivl 
+                                eller vil have hjælp til ekstra sikkerhed.</li>
+                        </ul>
+                </details>
+
+                <section class="boern-spoergsmål">
+                        <h3>Hvad er ekstra sikkerhed?</h3>
+                        <p>Nogle apps kan bede om en ekstra kode, når du logger ind.
+                           Det betyder, at det ikke er nok kun at kende din adgangskode.
+                           Det gør det sværere for andre at komme ind på din konto. Det
+                           er godt.
+                        </p>
+                </section>
+
+                <details class="boern-råd">
+                    <summary>Husk dette:</summary>
+                        <p>Hvis du får en besked om, at nogen prøver at logge ind på din
+                           konto, skal du ikke bare trykke på et tilfældigt link. Spørg en 
+                           voksen, hvis du er usikker.
+                        </p>
+                </details>
+             </div>
+        </section>
+    </main>
+
+
+    <footer class="footer">
+
+        <section class="footer-intro"
+                 aria-labelledby="afslutning-overskrift">
+
+            <h2 id="afslutning-overskrift">
+                Du behøver ikke vide alt
+            </h2>
+
+            <p>
+                Det vigtigste er, at du tænker dig om,
+                passer på dine oplysninger og siger det til nogen,
+                hvis noget på nettet gør dig utryg.
+            </p>
+
+            <p>
+                Husk: Du må altid spørge en voksen om hjælp.
+            </p>
+
+        </section>
+
+        <!-- Footerens tre kolonner -->
+        <div class="footer-kolonner">
+
+
+        <!-- Kolonne 1: Header Navn -->
+        <div class="footer-logo">
+            <a href="/index.html" class="header-tekst">
+                <span class="header-titel">
+                    Børnenes Univers
+                </span>
+
+                <span class="header-undertitel">
+                    Tryg Online
+                </span>                
+            </a>
+        </div>
+
+
+        <!-- Kolonne 2: Navigation -->
+           <nav class="footer-navigation"
+                 aria-label="Footer navigation">
+            <h2>Navigation</h2>
+
+            <ul>
+                <li>
+                    <a href="/index.html">
+                        Forside
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/forældre.html">
+                        Forældre
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/børn.html" aria-current="page">
+                        Børn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/kontakt.html">
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Kolonne 3: Kontakt -->
+        <section class="footer-kontakt"
+                 aria-labelledby="footer-kontakt-overskrift">
+
+            <h2 id="footer-kontakt-overskrift">
+                Kontakt
+            </h2>
+
+            <address>
+                <ul>
+                    <li>
+                        <a href="mailto:kontakt@børneuniverset.dk">
+                            kontakt@børneuniverset.dk
+                        </a>
+                    </li>
+
+                    <li>
+                        +45 xxxxxxxxxx
+                    </li>
+
+                    <li>
+                        Varde Danmark
+                    </li>
+                </ul>
+            </address>
+
+        </section>
+
+        </div>
+    </footer>
+</body>
+</html>
